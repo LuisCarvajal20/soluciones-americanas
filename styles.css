@@ -137,6 +137,10 @@
     text-decoration: none;
     transition: transform 0.3s;
   }
+  .img-whatsapp{
+    width: 40px;
+    height: 40px;
+  }
 
   .whatsapp:hover {
     transform: scale(1.1);
