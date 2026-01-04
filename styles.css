@@ -109,7 +109,62 @@
     margin: 0 auto;
     line-height: 1.6;
   }
+  /* CONTENEDOR PRINCIPAL PARA LINK DE SERVICIOS*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
+/* MENÚ BASE */
+.dropdown-menu,
+.dropdown-submenu {
+  position: absolute;
+  background: #001f54;
+  min-width: 260px;
+  display: none;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  z-index: 1000;
+}
+
+/* NIVEL 1 */
+.dropdown-menu {
+  top:0;
+  right: 100%;
+}
+
+/* NIVEL 2 Y 3 */
+.dropdown-submenu {
+  top: 0;
+  right: 100%;
+}
+
+/* MOSTRAR MENÚS */
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-sub:hover > .dropdown-submenu {
+  display: block;
+}
+
+/* ITEMS */
+.dropdown-sub,
+.dropdown-menu a {
+  position: relative;
+  padding: 12px 16px;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* LINKS */
+.dropdown-menu a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+/*FIN DEL CODIGO PARA MENU DE SERVICIOS*/
   footer {
     background-color: rgba(0,0,0,0.3);
     padding: 30px 10px;
@@ -145,7 +200,12 @@
   .whatsapp:hover {
     transform: scale(1.1);
   }
-
+  .mapa-cuadro{
+    width:500px; 
+    height:350px; 
+    border:0; 
+    border-radius: 15px;
+  }
   @media (max-width: 768px) {
     header {
       flex-direction: column;
@@ -154,5 +214,11 @@
     nav a {
       display: inline-block;
       margin: 10px;
+    }
+    .mapa-cuadro{
+      width:300px; 
+      height:250px; 
+      border:0; 
+      border-radius: 15px;
     }
   }
