@@ -11,7 +11,7 @@
     overflow-x: hidden;
   }
   /*BOTON QUE SE DESPLIEGA EN MOVIL*/
-  .menu-btn {
+  .menu-toggle {
     font-size: 26px;
     background: none;
     border: none;
@@ -166,7 +166,7 @@
   color: white;
 }
 /*FIN DEL CODIGO PARA MENU DE SERVICIOS*/
-/*nueva opccion*/
+
 /* Contenedor de Poligrafía */
 .poligrafia-item {
   position: relative; /* referencia para el submenú */
@@ -250,6 +250,15 @@
     border:0; 
     border-radius: 15px;
   }
+  @media (min-width: 769px) {
+    .menu-toggle {
+      display: none;
+    }
+  
+    .poligrafia-item:hover > .submenu-poligrafia {
+      display: block;
+    }
+  }
   @media (max-width: 768px) {
     header {
       flex-direction: column;
@@ -265,4 +274,33 @@
       border:0; 
       border-radius: 15px;
     }
+     /* Botón hamburguesa */
+    .menu-toggle {
+      display: block;
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+    }
+    /* Menú visible */
+    .nav-menu.open {
+      display: flex;
+    }
+     /* Links cómodos para dedo */
+    .nav-menu a {
+      padding: 14px 0;
+      display: block;
+    }
+    .dropdown-sub {
+      display: none;
+      margin-left: 15px;
+    }
+  
+    
   }
