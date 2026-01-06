@@ -1,4 +1,6 @@
 const sections = document.querySelectorAll("section");
+const menuBtn = document.getElementById("menuBtn");
+const hijoPoli = document.getElementById("hijo-poli");
     const showSections = () => {
       const trigger = window.innerHeight * 0.85;
       sections.forEach(sec => {
@@ -8,3 +10,4 @@ const sections = document.querySelectorAll("section");
     };
     window.addEventListener("scroll", showSections);
     showSections();
+

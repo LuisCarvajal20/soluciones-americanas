@@ -10,7 +10,14 @@
     color: white;
     overflow-x: hidden;
   }
-
+  /*BOTON QUE SE DESPLIEGA EN MOVIL*/
+  .menu-btn {
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    display: none;
+  }
   header {
     position: fixed;
     width: 100%;
@@ -119,33 +126,27 @@
 .dropdown-menu,
 .dropdown-submenu {
   position: absolute;
+  top: 100%;           /* 🔑 se abre HACIA ABAJO */
+  left: 0;
   background: #001f54;
   min-width: 260px;
-  display: none;
+  list-style: none;
+  padding: 8px 0;
   border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  z-index: 1000;
-}
+  /* Oculto por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
 
-/* NIVEL 1 */
-.dropdown-menu {
-  top:0;
-  right: 100%;
-}
-
-/* NIVEL 2 Y 3 */
-.dropdown-submenu {
-  top: 0;
-  right: 100%;
+  transition: all 0.25s ease;
+  z-index: 999;
 }
 
 /* MOSTRAR MENÚS */
 .dropdown:hover > .dropdown-menu {
-  display: block;
-}
-
-.dropdown-sub:hover > .dropdown-submenu {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* ITEMS */
@@ -165,6 +166,49 @@
   color: white;
 }
 /*FIN DEL CODIGO PARA MENU DE SERVICIOS*/
+/*nueva opccion*/
+/* Contenedor de Poligrafía */
+.poligrafia-item {
+  position: relative; /* referencia para el submenú */
+}
+
+/* Submenú */
+.submenu-poligrafia {
+  position: absolute;
+  top: 0;           /* 🔑 se abre HACIA ABAJO */
+  right: 100%;
+  background: #001f54;
+  min-width: 200px;
+  list-style: none;
+  padding: 8px 0;
+  border-radius: 8px;
+
+  /* Oculto por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition: all 0.25s ease;
+  z-index: 999; /* suficiente, pero no exagerado */
+}
+
+/* Mostrar al pasar el cursor por Poligrafía */
+.poligrafia-item:hover .submenu-poligrafia {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Links internos */
+.submenu-poligrafia a {
+  display: block;
+  padding: 10px 16px;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/*fin de la nueva opccion*/
   footer {
     background-color: rgba(0,0,0,0.3);
     padding: 30px 10px;
