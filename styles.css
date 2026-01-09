@@ -25,13 +25,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
+    padding: 10px 40px;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
-
+  .imgLogo{
+    width: 120px;
+  }
+  .nav-letf{
+    display: flex;
+    align-items: center;
+    gap: 12px; /* distancia entre logo y título */
+  }
   header h1 {
-    font-size: 1.4rem;
+    font-size: 2rem;
     color: #ffd700; /* dorado */
     letter-spacing: 1px;
   }
@@ -260,6 +267,9 @@
     }
   }
   @media (max-width: 768px) {
+    body {
+      overflow-x: hidden;
+    }
     header {
       flex-direction: column;
       text-align: center;
@@ -267,6 +277,26 @@
     nav a {
       display: inline-block;
       margin: 10px;
+    }
+    .nav-letf{
+      flex-direction: column;
+      gap: 8px; /* distancia entre logo y título */
+    }
+    .imgLogo{
+      width: 80px;
+    }
+    header h1 {
+      font-size: 1.3rem;
+      color: #ffd700; /* dorado */
+      letter-spacing: 1px;
+    }
+    .hero {
+      height: 110vh; 
+    }
+    .hero h2 {
+      font-size: 1.9rem;
+      color: #ffd700;
+      margin-bottom: 15px;
     }
     .mapa-cuadro{
       width:300px; 
@@ -301,6 +331,10 @@
       display: none;
       margin-left: 15px;
     }
-  
+    .submenu-poligrafia{
+      position: absolute;
+      top: 0;           /* 🔑 se abre HACIA ABAJO */
+      right: 80%;
+    }
     
   }
