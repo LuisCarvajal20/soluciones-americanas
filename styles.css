@@ -280,6 +280,9 @@
       flex-direction: column;
       text-align: center;
     }
+    nav{
+      top: 70px;
+    }
     nav a {
       display: inline-block;
       margin: 10px;
@@ -313,20 +316,73 @@
      /* Botón hamburguesa */
     .menu-toggle {
       display: block;
-      font-size: 28px;
+      width: 35px;
+      height: 28px;
       background: none;
       border: none;
-      color: white;
       cursor: pointer;
+      position: relative;
+      z-index: 1001;
+      
+    }
+    .menu-toggle span {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 3px;
+      transition: transform 0.4s ease, opacity 0.25s ease;
+    }
+    .menu-toggle span:nth-child(1) {
+      top: 0;
+    }
+    
+    .menu-toggle span:nth-child(2) {
+      top: 12px;
+    }
+    
+    .menu-toggle span:nth-child(3) {
+      bottom: 0;
+    }
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 12px;
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      bottom: 12px;
     }
     .nav-menu {
-      display: none;
-      flex-direction: column;
-      
+      position: static;
+      top: 70px; /* altura de tu navbar */
+      left: 0;
+      width: 100%;
+      align-items: center;
+  
+      overflow: visible;
+      max-height: 0;
+  
+      opacity: 0;
+      transform: translateY(-10px);
+  
+      transition:
+        max-height 0.4s ease,
+        opacity 0.3s ease,
+        transform 0.3s ease;
+  
+      z-index: 999;
     }
     /* Menú visible */
     .nav-menu.open {
-      display: flex;
+      max-height: 100vh;
+      opacity: 1;
+      transform: translateY(0);
     }
      /* Links cómodos para dedo */
     .nav-menu a {
@@ -335,6 +391,7 @@
     }
     .dropdown-sub {
       display: none;
+      position: static;
       margin-left: 15px;
     }
     .submenu-poligrafia{

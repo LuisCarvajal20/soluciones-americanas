@@ -12,7 +12,9 @@ const servicios =document.getElementById('servicios');
     };
     window.addEventListener("scroll", showSections);
     showSections();
-menuToggle.addEventListener('click', () => {
+menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuToggle.classList.toggle('active');
       navMenu.classList.toggle('open');
 });
 /* Submenús en móvil */
@@ -20,4 +22,25 @@ servicios.addEventListener("click", function (e) {
   e.preventDefault(); // evita que el link recargue
 
   subMenu.style.display = "block";
+  
 });
+/* Cerrar al hacer click fuera */
+document.addEventListener('click', (e) => {
+  if (
+    navMenu.classList.contains('open') &&
+    !navMenu.contains(e.target) &&
+    !menuToggle.contains(e.target)
+  ) {
+    navMenu.classList.remove('open');
+  }
+});
+
+/* Cerrar al hacer scroll */
+let lastScroll = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  if (navMenu.classList.contains('open')) {
+    navMenu.classList.remove('open');
+  }
+});
+
