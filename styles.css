@@ -61,6 +61,7 @@
     opacity: 0;
     transform: translateY(40px);
     transition: all 1s ease;
+    scroll-margin-top: 90px;
   }
 
   section.visible {
@@ -251,6 +252,11 @@
   .whatsapp:hover {
     transform: scale(1.1);
   }
+  .mapa{
+    background-color: rgba(255,255,255,0.1);
+    border-top: 2px solid rgba(255,255,255,0.3);
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+  }
   .mapa-cuadro{
     width:500px; 
     height:350px; 
@@ -316,7 +322,7 @@
     .nav-menu {
       display: none;
       flex-direction: column;
-      width: 100%;
+      
     }
     /* Menú visible */
     .nav-menu.open {
