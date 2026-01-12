@@ -276,11 +276,30 @@
     body {
       overflow-x: hidden;
     }
-    header {
+    .header {
       flex-direction: column;
       text-align: center;
+      transition: padding 0.4s ease;
+      padding: 20px 0;
+    }
+    .header.compact {
+      padding: 10px 0;
+    }
+    .header.compact .titulo-logo {
+      opacity: 0;
+      transform: translateY(-20px);
+      height: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+    .header.compact .menu-toggle {
+      margin-top: 10px;
+      transform: translateY(-5px);
+    }.header.compact .imgLogo {
+      width: 100px;
     }
     nav{
+      align-items: center;
       top: 70px;
     }
     nav a {
@@ -294,13 +313,20 @@
     .imgLogo{
       width: 80px;
     }
-    header h1 {
+    .titulo-logo {
+      margin: 10px 0;
       font-size: 1.3rem;
       color: #ffd700; /* dorado */
       letter-spacing: 1px;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .titulo-logo.hide {
+      opacity: 0;
+      transform: translateY(-15px);
+      pointer-events: none;
     }
     .hero {
-      height: 110vh; 
+      height: 120vh; 
     }
     .hero h2 {
       font-size: 1.9rem;
@@ -315,6 +341,7 @@
     }
      /* Botón hamburguesa */
     .menu-toggle {
+      margin-top: 10px;
       display: block;
       width: 35px;
       height: 28px;
@@ -323,7 +350,7 @@
       cursor: pointer;
       position: relative;
       z-index: 1001;
-      
+      transition: margin 0.4s ease, transform 0.4s ease;
     }
     .menu-toggle span {
       position: absolute;
