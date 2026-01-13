@@ -63,3 +63,44 @@ window.addEventListener('scroll', () => {
     header.classList.remove('compact');
   }
 });
+/*EMPIEZA LO DE LAS IMAGENES DE PRESENTACION */
+const slides = document.getElementById('slides');
+const totalSlides = slides.children.length;
+const dotsContainer = document.getElementById('dots');
+let index = 0;
+
+// Create dots
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement('div');
+  dot.classList.add('dot');
+  if (i === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+}
+
+const dots = document.querySelectorAll('.dot');
+
+function updateSlider() {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+function goToSlide(i) {
+  index = i;
+  updateSlider();
+}
+document.getElementById('next').onclick = () => {
+  index = (index + 1) % totalSlides;
+  updateSlider();
+};
+
+document.getElementById('prev').onclick = () => {
+  index = (index - 1 + totalSlides) % totalSlides;
+  updateSlider();
+};
+// Auto play
+setInterval(() => {
+  index = (index + 1) % totalSlides;
+  updateSlider();
+}, 6000);

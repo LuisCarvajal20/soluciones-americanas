@@ -9,6 +9,7 @@
     background: linear-gradient(135deg, #001f54, #002e7a, #d62828);
     color: white;
     overflow-x: hidden;
+    
   }
   /*BOTON QUE SE DESPLIEGA EN MOVIL*/
   .menu-toggle {
@@ -54,22 +55,101 @@
   nav a:hover {
     color: #ffd700;
   }
-
+  /* HERO SLIDER */
+ .hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  height: calc(100vh - 90px); /* ajusta a la altura real del navbar */
+ }
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+}
+.slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 130%;
+  font-weight: bold;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.slide-content a:hover {
+  transform: scale(1.05);
+  background: #c62828;
+} 
+    /* CONTROLS */
+ .controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding:20px;
+    z-index: 2;
+ }
+  .controls button {
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+  }
+.controls button:hover {
+    background: rgba(0,0,0,0.8);
+} 
+    /* DOTS */
+   .dots {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      z-index: 2;
+   }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+    .dot.active {
+      opacity: 1;
+      background: #ffd400;
+    }
   section {
-    padding: 100px 20px;
+    padding: 150px 20px;
     text-align: center;
     opacity: 0;
     transform: translateY(40px);
     transition: all 1s ease;
     scroll-margin-top: 90px;
   }
-
   section.visible {
     opacity: 1;
     transform: translateY(0);
   }
-
-  .hero {
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /*.hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -105,7 +185,7 @@
 
   .hero button:hover {
     background-color: #b81e1e;
-  }
+  } */
 
   .servicios {
     background-color: rgba(255,255,255,0.1);
@@ -325,14 +405,17 @@
       transform: translateY(-15px);
       pointer-events: none;
     }
-    .hero {
-      height: 125vh; 
+    .slide-content h2 {
+      font-size: 1.6rem;
+    }
+    /* .hero {
+      height: 300vh; 
     }
     .hero h2 {
       font-size: 1.9rem;
       color: #ffd700;
       margin-bottom: 15px;
-    }
+    } */
     .mapa-cuadro{
       width:300px; 
       height:250px; 
