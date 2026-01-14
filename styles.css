@@ -9,7 +9,6 @@
     background: linear-gradient(135deg, #001f54, #002e7a, #d62828);
     color: white;
     overflow-x: hidden;
-    
   }
   /*BOTON QUE SE DESPLIEGA EN MOVIL*/
   .menu-toggle {
@@ -57,34 +56,45 @@
   }
   /* HERO SLIDER */
  .hero {
+  
   position: relative;
   width: 100vw;
   height: 100vh;
   margin-left: calc(-50vw + 50%);
   overflow: hidden;
-  height: calc(100vh - 90px); /* ajusta a la altura real del navbar */
+  height: calc(100vh - 30px); /* ajusta a la altura real del navbar */
  }
 .slides {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 130%;
     transition: transform 0.8s ease-in-out;
 }
 .slide {
   flex: 0 0 100%;
   width: 100%;
-  height: 130%;
+  height: 150%;
   font-weight: bold;
   transition: transform 0.3s ease, background 0.3s ease;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
-.slide-content a:hover {
-  transform: scale(1.05);
-  background: #c62828;
+.slide .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* ajusta aquí */
+  z-index: 1;
+}
+.slide-content h2 {
+  font-size: 35px;
+  color: #ffd700;
 } 
     /* CONTROLS */
  .controls {
+    inset: 0;  
     position: absolute;
-    top: 50%;
+    top: 65%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -93,14 +103,16 @@
     z-index: 2;
  }
   .controls button {
-    background: rgba(0,0,0,0.5);
-    border: none;
-    color: #fff;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 10px 15px;
+    pointer-events: auto;   /* vuelve clickeable el botón */
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    transition: background 0.3s ease;
+    border: none;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    margin: 0 12px;
   }
 .controls button:hover {
     background: rgba(0,0,0,0.8);
@@ -171,7 +183,12 @@
     color: #fff;
   }
 
-  .hero button {
+  
+
+  .hero button:hover {
+    background-color: #b81e1e;
+  } */
+  .agendar {
     margin-top: 25px;
     background-color: #d62828;
     color: white;
@@ -182,11 +199,6 @@
     font-weight: bold;
     transition: background-color 0.3s;
   }
-
-  .hero button:hover {
-    background-color: #b81e1e;
-  } */
-
   .servicios {
     background-color: rgba(255,255,255,0.1);
     border-top: 2px solid rgba(255,255,255,0.3);
