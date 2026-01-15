@@ -1,3 +1,11 @@
+:root {
+  --rojo: #af2121;
+  --azul-medio: #001f54;
+  --negro:#000000;
+  --blanco: #ffffff;
+  --gris-claro: #f4f6f8;
+  --dorado:#ffd700;
+}
 * {
     margin: 0;
     padding: 0;
@@ -19,18 +27,21 @@
     display: none;
   }
   header {
-    position: fixed;
+    position: sticky;
     width: 100%;
+    top: 0;
+    left: 0;
+    
     background-color: rgba(0, 31, 84, 0.9);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
+    padding:10px 20px;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
   .imgLogo{
-    width: 120px;
+    width: 100px;
   }
   .nav-letf{
     display: flex;
@@ -42,7 +53,17 @@
     color: #ffd700; /* dorado */
     letter-spacing: 1px;
   }
-
+  .titulo-header{
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Alinea uno sobre otro */
+    gap: 0px;
+  }
+  .titulo-header p{
+    
+    font-size: 27px;
+  }
+ 
   nav a {
     margin-left: 20px;
     color: white;
@@ -54,7 +75,7 @@
   nav a:hover {
     color: #ffd700;
   }
-  /* HERO SLIDER */
+  /* HERO SLIDER  empieza el contenido de la pagina*/
  .hero {
   
   position: relative;
@@ -62,7 +83,7 @@
   height: 100vh;
   margin-left: calc(-50vw + 50%);
   overflow: hidden;
-  height: calc(100vh - 30px); /* ajusta a la altura real del navbar */
+  height: calc(100vh - 70px); /* ajusta a la altura real del navbar */
  }
 .slides {
     display: flex;
@@ -80,15 +101,13 @@
   background-size: cover;
   background-position: center;
 }
-.slide .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* ajusta aquí */
-  z-index: 1;
-}
+
 .slide-content h2 {
   font-size: 35px;
   color: #ffd700;
+} 
+.slide-content {
+  margin-top: 160px;
 } 
     /* CONTROLS */
  .controls {
@@ -140,7 +159,7 @@
       background: #ffd400;
     }
   section {
-    padding: 150px 20px;
+    padding: 40px 20px;
     text-align: center;
     opacity: 0;
     transform: translateY(40px);
@@ -161,33 +180,6 @@
       transform: translateY(0);
     }
   }
-  /*.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: radial-gradient(circle at top, rgba(0,0,0,0.3), transparent);
-  }
-
-  .hero h2 {
-    font-size: 2.5rem;
-    color: #ffd700;
-    margin-bottom: 15px;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    color: #fff;
-  }
-
-  
-
-  .hero button:hover {
-    background-color: #b81e1e;
-  } */
   .agendar {
     margin-top: 25px;
     background-color: #d62828;
@@ -198,6 +190,73 @@
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
+  }
+  .quienes-somos{
+    width: 100%;
+    margin-top: 10px;
+    padding: 50px 0;
+    border-top: 2px solid rgba(255,255,255,0.3);
+  }
+  .quienes-somos h3{
+    color: #ffd700;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  
+  .intro-box {
+    padding: 60px;
+  }
+  
+  .intro-box h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .intro-box p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .intro-box.light {
+    background: var(--blanco);
+    color: var(--azul-medio);
+  }
+  
+  .intro-box.dark {
+    background: var(--rojo);
+    color: var(--azul-medio);
+  }
+  .mv {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+  }
+  
+  .mv-box {
+    padding: 60px;
+  }
+  
+  .mv-box h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .mv-box p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .mv-box.light {
+    background: var(--dorado);
+    color: var(--azul-medio);
+  }
+  
+  .mv-box.dark {
+    background: var(--azul-medio);
+    color: var(--blanco);
   }
   .servicios {
     background-color: rgba(255,255,255,0.1);
@@ -376,7 +435,9 @@
     }
     .header.compact {
       padding: 10px 0;
+      flex-direction: row;
     }
+   
     .header.compact .titulo-logo {
       opacity: 0;
       transform: translateY(-20px);
@@ -403,14 +464,17 @@
       gap: 8px; /* distancia entre logo y título */
     }
     .imgLogo{
-      width: 90px;
+      width: 80px;
     }
     .titulo-logo {
       margin: 10px 0;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       color: #ffd700; /* dorado */
       letter-spacing: 1px;
       transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .titulo-header p{
+      font-size: 1.1rem;
     }
     .titulo-logo.hide {
       opacity: 0;
@@ -418,7 +482,7 @@
       pointer-events: none;
     }
     .slide-content h2 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
     /* .hero {
       height: 300vh; 

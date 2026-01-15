@@ -17,7 +17,8 @@ const header = document.querySelector('.header');
 menuToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       menuToggle.classList.toggle('active');
-      navMenu.classList.toggle('open');  
+      navMenu.classList.toggle('open');
+      header.style.position = "fixed";  
 });
 /* Submenús en móvil */
 servicios.addEventListener("click", function (e) {
@@ -35,6 +36,7 @@ document.addEventListener('click', (e) => {
   ) {
     navMenu.classList.remove('open');
     menuToggle.classList.remove('active');
+    header.style.position = "sticky";
   }
 });
 
@@ -45,6 +47,7 @@ window.addEventListener('scroll', () => {
   if (navMenu.classList.contains('open')) {
     navMenu.classList.remove('open');
     menuToggle.classList.remove('active');
+    header.style.position = "sticky";
   }
 });
 /*Hacer qye el titulo se anime al subir y bajar haciendo scroll movil */
@@ -59,6 +62,7 @@ window.addEventListener('scroll', () => {
 window.addEventListener('scroll', () => {
   if (window.scrollY > 60) {
     header.classList.add('compact');
+    header.style.position = "sticky";
   } else {
     header.classList.remove('compact');
   }
