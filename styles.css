@@ -31,17 +31,16 @@
     width: 100%;
     top: 0;
     left: 0;
-    
     background-color: rgba(0, 31, 84, 0.9);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:10px 20px;
+    padding:5px 20px;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
   .imgLogo{
-    width: 100px;
+    width: 85px;
   }
   .nav-letf{
     display: flex;
@@ -88,7 +87,7 @@
 .slides {
     display: flex;
     width: 100%;
-    height: 130%;
+    height: 100%;
     transition: transform 0.8s ease-in-out;
 }
 .slide {
@@ -158,8 +157,23 @@
       opacity: 1;
       background: #ffd400;
     }
+    .que-es{
+      margin: 30px;
+    }
+    .que-es p{
+      width: 700px;
+    }
+    .que-es .derecha p{
+
+    }
+    .que-porque{
+      display: flex;
+      background-image:linear-gradient(
+        rgba(0,0,0,0.55),rgba(0,0,0,0.25)), url("/imagenes/hombre-poligrafo.jpg");
+    }
+
   section {
-    padding: 40px 20px;
+    padding: 20px 20px;
     text-align: center;
     opacity: 0;
     transform: translateY(40px);
@@ -199,8 +213,20 @@
   }
   .quienes-somos h3{
     color: #ffd700;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
+    margin-bottom: 30px;
+    font-size: 3.5rem;
+  }
+  .imgCono{
+    width: 300px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(8,8,8,8);
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 1s;
+  }
+  .imgCono:hover{
+    transform: scale(1.1);
+    transition: 1s;
   }
   .intro {
     display: grid;
@@ -224,11 +250,21 @@
   .intro-box.light {
     background: var(--blanco);
     color: var(--azul-medio);
+    transition: background-color 0.5s ease, transform 0.3s ease;
   }
-  
+  .intro-box.light:hover {
+    background: var(--dorado);
+    transition: background-color 0.5s ease, transform 0.3s ease;
+  }
   .intro-box.dark {
     background: var(--rojo);
     color: var(--azul-medio);
+    transition: background-color 0.5s ease, transform 0.3s ease;
+  }
+  .intro-box.dark:hover {
+    background: var(--dorado);
+    color: var(--azul-medio);
+    transition: background-color 0.5s ease, transform 0.3s ease;
   }
   .mv {
     display: grid;
@@ -250,13 +286,24 @@
     line-height: 1.7;
   }
   .mv-box.light {
+    background: var(--gris-claro);
+    color: var(--azul-medio);
+    transition: background-color 0.5s ease, transform 0.3s ease;
+  }
+  .mv-box.light:hover {
     background: var(--dorado);
     color: var(--azul-medio);
+    transition: background-color 0.5s ease, transform 0.3s ease;
   }
-  
   .mv-box.dark {
     background: var(--azul-medio);
     color: var(--blanco);
+    transition: background-color 0.5s ease, transform 0.3s ease;
+  }
+  .mv-box.dark:hover {
+    background: var(--dorado);
+    color: var(--azul-medio);
+    transition: background-color 0.5s ease, transform 0.3s ease;
   }
   .servicios {
     background-color: rgba(255,255,255,0.1);
@@ -403,17 +450,26 @@
   .whatsapp:hover {
     transform: scale(1.1);
   }
-  .mapa{
-    background-color: rgba(255,255,255,0.1);
-    border-top: 2px solid rgba(255,255,255,0.3);
-    border-bottom: 2px solid rgba(255,255,255,0.3);
-  }
+ .horario{
+  padding-top: 50px;
+ }
   .mapa-cuadro{
-    width:500px; 
-    height:350px; 
+    width:80%; 
+    height:250px; 
     border:0; 
-    border-radius: 15px;
+    border-radius: 20px;
   }
+
+  .footer {
+      display: flex;          /* Los pone en fila */
+      flex-wrap: wrap;       /* Si no caben (en móvil), uno baja debajo del otro */
+      justify-content: space-around; /* Deja espacio uniforme entre ellos */
+      align-items: flex-start; /* Los alinea por la parte de arriba */
+      gap: 20px;             /* Espacio de separación entre mapa y horario */
+      padding: 40px 20px;
+  }
+
+  
   @media (min-width: 769px) {
     .menu-toggle {
       display: none;
