@@ -5,6 +5,9 @@ const subMenu =document.getElementById('subMenu');
 const servicios =document.getElementById('servicios');
 const title = document.querySelector('.titulo-logo');
 const header = document.querySelector('.header');
+const slider = document.getElementById("inicio");
+const slides = document.querySelector(".slides");
+const totalSlides = document.querySelectorAll(".slide").length;
     const showSections = () => {
       const trigger = window.innerHeight * 0.85;
       sections.forEach(sec => {
@@ -18,14 +21,14 @@ menuToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       menuToggle.classList.toggle('active');
       navMenu.classList.toggle('open');
-      header.style.position = "fixed";  
+      header.style.position = "fixed";
+      header.classList.remove('compact');  
 });
 /* Submenús en móvil */
 servicios.addEventListener("click", function (e) {
   e.preventDefault(); // evita que el link recargue
 
   subMenu.style.display = "block";
-  
 });
 /* Cerrar al hacer click fuera */
 document.addEventListener('click', (e) => {
@@ -68,8 +71,7 @@ window.addEventListener('scroll', () => {
   }
 });
 /*EMPIEZA LO DE LAS IMAGENES DE PRESENTACION */
-const slides = document.getElementById('slides');
-const totalSlides = slides.children.length;
+
 const dotsContainer = document.getElementById('dots');
 let index = 0;
 
@@ -108,3 +110,39 @@ setInterval(() => {
   index = (index + 1) % totalSlides;
   updateSlider();
 }, 6000);
+ /*PARA HACER QUE SE ANIME DESLIZANDO LAS IMAGENES EN MOVIL */
+let currentIndex = 0;
+let startX = 0;
+let endX = 0;
+
+// FUNCION PARA MOVER SLIDE
+function updateSlide() {
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// TOUCH START
+slider.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+// TOUCH MOVE
+slider.addEventListener("touchmove", (e) => {
+  endX = e.touches[0].clientX;
+});
+
+// TOUCH END
+slider.addEventListener("touchend", () => {
+  const diff = startX - endX;
+
+  if (diff > 50) {
+    // swipe izquierda
+    currentIndex = (currentIndex + 1) % totalSlides;
+  } else if (diff < -50) {
+    // swipe derecha
+    currentIndex =
+      (currentIndex - 1 + totalSlides) % totalSlides;
+  }
+
+  updateSlide();
+});
+/*TERMINA CODIGO PARA HACER QUE SE ANIME LAS DESLIZADAS EN MOVIL */
