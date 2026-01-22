@@ -8,6 +8,9 @@ const header = document.querySelector('.header');
 const slider = document.getElementById("inicio");
 const slides = document.querySelector(".slides");
 const totalSlides = document.querySelectorAll(".slide").length;
+const btnPoli = document.getElementById("btn-poligraficas");
+const contPoli = document.querySelector(".cont-Pre-rut");
+const contServ = document.querySelector(".cont-serv");
     const showSections = () => {
       const trigger = window.innerHeight * 0.85;
       sections.forEach(sec => {
@@ -146,3 +149,8 @@ slider.addEventListener("touchend", () => {
   updateSlide();
 });
 /*TERMINA CODIGO PARA HACER QUE SE ANIME LAS DESLIZADAS EN MOVIL */
+btnPoli.addEventListener("click", (e)=>{
+  e.preventDefault(); // evita que el link recargue
+  contPoli.style.display = "block";
+  contServ.style.display = "none";
+});
