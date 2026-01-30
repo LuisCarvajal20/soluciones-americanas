@@ -222,6 +222,7 @@
     transition: background-color 0.3s;
   }
   .quienes-somos{
+    display: none;
     width: 100%;
     margin-top: 10px;
     padding: 50px 0;
@@ -389,9 +390,24 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    grid-auto-rows: minmax(100px, auto);
     padding: 60px 5%;
 
   }
+  .banner{
+    grid-column: 1/4;
+    grid-row: 1;
+    background: #001f54;
+    border-radius: 18px;
+    color: #fff;
+    align-items: center;
+    display: flex;
+    align-items: center;      /* centra vertical */
+    justify-content: center;  /* centra horizontal */
+    height: 80px; /* o el alto que estés usando */
+    font-size: 1.8rem;
+  }
+
   /* CONTENEDOR PRINCIPAL PARA LINK DE SERVICIOS*/
 .dropdown {
   position: relative;
@@ -737,7 +753,9 @@
     .pruebas-poli{
       grid-template-columns: 1fr; 
     }
-
-
-
+    .banner{
+      grid-column: 1/2;
+      grid-row: 1;
+      font-size: 1.3rem;
+    }
   }

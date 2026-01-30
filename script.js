@@ -11,6 +11,9 @@ const totalSlides = document.querySelectorAll(".slide").length;
 const btnPoli = document.getElementById("btn-poligraficas");
 const contPoli = document.querySelector(".cont-Pre-rut");
 const contServ = document.querySelector(".cont-serv");
+const conocenos = document.getElementById("conocenos");
+const quieneSomos = document.getElementById("quienes-somos");
+const queEsPorque = document.getElementById("que-porque");
     const showSections = () => {
       const trigger = window.innerHeight * 0.85;
       sections.forEach(sec => {
@@ -154,3 +157,13 @@ btnPoli.addEventListener("click", (e)=>{
   contPoli.style.display = "block";
   contServ.style.display = "none";
 });
+/*HACER QUE SE ENCONDA Y APARESCA LA SECCION CONOCENOS */
+conocenos.addEventListener("click",(e)=>{
+  e.preventDefault(); // evita que el link recargue
+  quieneSomos.style.display = "block";
+  slider.style.display = "none";
+  queEsPorque.style.display = "none";
+  servicios.style.display = "none";
+});
+
+
