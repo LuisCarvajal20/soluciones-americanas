@@ -228,6 +228,14 @@
     padding: 50px 0;
     border-top: 2px solid rgba(255,255,255,0.3);
   }
+  .titulo-cono{
+    background-image: linear-gradient(
+      rgba(0,0,0,0.6)), url("/imagenes/corporate-workers-brainstorming-together.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
   .quienes-somos h3{
     color: #ffd700;
     margin-bottom: 30px;
@@ -236,7 +244,7 @@
   .imgCono{
     width: 350px;
     margin-bottom: 40px;
-    box-shadow:0px 2px 8px 6px rgba(6,6,6,6);
+    box-shadow:0px 2px 8px 6px rgba(5,5,5,5);
     border-radius: 100%;
     cursor: pointer;
     transition: 1s;
@@ -379,6 +387,7 @@
     text-decoration: none;
     font-weight: 600;
     transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
   }
   
   .btn-service:hover {

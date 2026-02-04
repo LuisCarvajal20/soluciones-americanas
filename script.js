@@ -11,9 +11,13 @@ const totalSlides = document.querySelectorAll(".slide").length;
 const btnPoli = document.getElementById("btn-poligraficas");
 const contPoli = document.querySelector(".cont-Pre-rut");
 const contServ = document.querySelector(".cont-serv");
+const EstudiosVeri= document.getElementById("estudios-veri");
+const contEstuVeri = document.querySelector(".cont-Pre-estu");
+const btnEstudiosVeri = document.getElementById("btn-estudios-veri");
 const conocenos = document.getElementById("conocenos");
 const quieneSomos = document.getElementById("quienes-somos");
 const queEsPorque = document.getElementById("que-porque");
+const NuestrosServicios = document.getElementById("nuestros-serv");
     const showSections = () => {
       const trigger = window.innerHeight * 0.85;
       sections.forEach(sec => {
@@ -152,18 +156,35 @@ slider.addEventListener("touchend", () => {
   updateSlide();
 });
 /*TERMINA CODIGO PARA HACER QUE SE ANIME LAS DESLIZADAS EN MOVIL */
-btnPoli.addEventListener("click", (e)=>{
-  e.preventDefault(); // evita que el link recargue
-  contPoli.style.display = "block";
-  contServ.style.display = "none";
-});
-/*HACER QUE SE ENCONDA Y APARESCA LA SECCION CONOCENOS */
-conocenos.addEventListener("click",(e)=>{
-  e.preventDefault(); // evita que el link recargue
-  quieneSomos.style.display = "block";
+/*Hacer que dos botones abran el bloque de preubas de poligrafo */
+function ocultarTodo(){
+  quieneSomos.style.display="none";
+  servicios.style.display = "none";
   slider.style.display = "none";
   queEsPorque.style.display = "none";
-  servicios.style.display = "none";
+}
+NuestrosServicios.addEventListener("click", ()=>{
+  ocultarTodo();
+  servicios.style.display = "block";
+});
+btnPoli.addEventListener("click",  ()=>{
+  ocultarTodo();
+  servicios.style.display = "block";
+  contPoli.style.display = "block";
+  contServ.style.display ="none";
+
+});
+btnEstudiosVeri.addEventListener("click", ()=>{
+  ocultarTodo();
+  servicios.style.display = "block";
+  contEstuVeri.style.display ="block";
+  contPoli.style.display = "none";
+  contServ.style.display ="none";
+});
+/*HACER QUE SE ENCONDA Y APARESCA LA SECCION CONOCENOS */
+conocenos.addEventListener("click",()=>{
+  ocultarTodo();
+  quieneSomos.style.display="block";
 });
 
 
