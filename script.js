@@ -9,6 +9,9 @@ const slider = document.getElementById("inicio");
 const slides = document.querySelector(".slides");
 const totalSlides = document.querySelectorAll(".slide").length;
 const btnPoli = document.getElementById("btn-poligraficas");
+const btnPre = document.getElementById("btnPreempleo");
+const btnRut = document.getElementById("btnRutina");
+const btnEspe = document.getElementById("btnEspeficos");
 const contPoli = document.querySelector(".cont-Pre-rut");
 const contServ = document.querySelector(".cont-serv");
 const EstudiosVeri= document.getElementById("estudios-veri");
@@ -167,12 +170,26 @@ NuestrosServicios.addEventListener("click", ()=>{
   ocultarTodo();
   servicios.style.display = "block";
 });
-btnPoli.addEventListener("click",  ()=>{
-  ocultarTodo();
+function ServPoligrafia(){
   servicios.style.display = "block";
   contPoli.style.display = "block";
   contServ.style.display ="none";
-
+}
+btnPoli.addEventListener("click",  ()=>{
+  ocultarTodo();
+  ServPoligrafia();
+});
+btnEspe.addEventListener("click",  ()=>{
+  ocultarTodo();
+  ServPoligrafia();
+});
+btnPre.addEventListener("click",  ()=>{
+  ocultarTodo();
+  ServPoligrafia();
+});
+btnRut.addEventListener("click",  ()=>{
+  ocultarTodo();
+  ServPoligrafia();
 });
 btnEstudiosVeri.addEventListener("click", ()=>{
   ocultarTodo();

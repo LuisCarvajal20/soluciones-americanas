@@ -535,8 +535,9 @@
     transform: scale(1.1);
   }
  .horario{
-  padding-top: 50px;
+  width: 300px;
  }
+ 
   .mapa-cuadro{
     width:80%; 
     height:250px; 
@@ -544,14 +545,22 @@
     border-radius: 20px;
   }
   .footer {
-      display: flex;          /* Los pone en fila */
-      flex-wrap: wrap;       /* Si no caben (en móvil), uno baja debajo del otro */
-      justify-content: space-around; /* Deja espacio uniforme entre ellos */
-      align-items: flex-start; /* Los alinea por la parte de arriba */
-      gap: 20px;             /* Espacio de separación entre mapa y horario */
-      padding: 40px 20px;
+     /* display: flex;          /* Los pone en fila */
+     /* flex-wrap: wrap;       /* Si no caben (en móvil), uno baja debajo del otro */
+      /*justify-content: space-around; /* Deja espacio uniforme entre ellos */
+      /*align-items: flex-start; /* Los alinea por la parte de arriba */
+      /*gap: 20px;             /* Espacio de separación entre mapa y horario */
+      /*padding: 40px 20px; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 60px 5%;
   }
-
+  .operacion{
+    padding-bottom: 20px;
+    width: 300px;
+  }
   
   @media (min-width: 769px) {
     .menu-toggle {
@@ -766,5 +775,8 @@
       grid-column: 1/2;
       grid-row: 1;
       font-size: 1.3rem;
+    }
+    .footer{
+      grid-template-columns: 1fr;
     }
   }
