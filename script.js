@@ -5,6 +5,7 @@ const subMenu =document.getElementById('subMenu');
 const servicios =document.getElementById('servicios');
 const title = document.querySelector('.titulo-logo');
 const header = document.querySelector('.header');
+const headerMovil = document.getElementById('nav-letf');
 const slider = document.getElementById("inicio");
 const slides = document.querySelector(".slides");
 const totalSlides = document.querySelectorAll(".slide").length;
@@ -78,9 +79,11 @@ window.addEventListener('scroll', () => {
 window.addEventListener('scroll', () => {
   if (window.scrollY > 60) {
     header.classList.add('compact');
+    headerMovil.classList.add('compact');
     header.style.position = "sticky";
   } else {
     header.classList.remove('compact');
+    headerMovil.classList.remove('compact');
   }
 });
 /*EMPIEZA LO DE LAS IMAGENES DE PRESENTACION */
