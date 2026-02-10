@@ -584,7 +584,7 @@
       text-align: center;
       align-items: center;
       transition: padding 0.4s ease;
-      padding: 20px 5%;
+      padding: 10px 5%;
     }
     .nav-letf{
       flex-direction: column;
@@ -594,7 +594,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
-      gap: 0px;
+      
     }
    
     .header.compact .titulo-logo {
