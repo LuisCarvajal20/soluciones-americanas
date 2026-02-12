@@ -347,39 +347,32 @@
     color: #fff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
   .service-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-  }
-  
+  } 
   .service-img {
     height: 230px;
     overflow: hidden;
   }
-  
   .service-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  
   .service-content {
     padding: 30px;
     text-align: center;
   }
-  
   .service-content h3 {
     font-size: 1.6rem;
     margin-bottom: 15px;
   }
-  
   .service-content p {
     font-size: 0.95rem;
     line-height: 1.6;
     opacity: 0.95;
   }
-  
   .btn-service {
     display: inline-block;
     margin-top: 20px;
@@ -391,8 +384,7 @@
     font-weight: 600;
     transition: background 0.3s ease, color 0.3s ease;
     cursor: pointer;
-  }
-  
+  } 
   .btn-service:hover {
     background: #f5c400;
     color: #000;
@@ -419,7 +411,6 @@
     height: 80px; /* o el alto que estés usando */
     font-size: 1.8rem;
   }
-
   /* CONTENEDOR PRINCIPAL PARA LINK DE SERVICIOS*/
 .dropdown {
   position: relative;
@@ -534,37 +525,60 @@
     width: 40px;
     height: 40px;
   }
+ 
   .whatsapp:hover {
     transform: scale(1.1);
   }
+  /*horario , mapa gps ,cobertura y footer*/
  .horario{
   width: 300px;
  }
- 
   .mapa-cuadro{
     width:80%; 
     height:250px; 
     border:0; 
     border-radius: 20px;
   }
+  .operacion{
+    padding-bottom: 20px;
+    width: 300px;
+  }
   .footer {
-     /* display: flex;          /* Los pone en fila */
-     /* flex-wrap: wrap;       /* Si no caben (en móvil), uno baja debajo del otro */
-      /*justify-content: space-around; /* Deja espacio uniforme entre ellos */
-      /*align-items: flex-start; /* Los alinea por la parte de arriba */
-      /*gap: 20px;             /* Espacio de separación entre mapa y horario */
-      /*padding: 40px 20px; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     grid-auto-rows: minmax(100px, auto);
     padding: 60px 5%;
   }
-  .operacion{
-    padding-bottom: 20px;
-    width: 300px;
+  .agendar-contacto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* Esto centra el botón si el padre es un bloque ancho */
+    margin: 20px auto; 
+    /* Ancho máximo para que no se estire a toda la pantalla */
+    width: fit-content;
+    background-color:  #25D366;
+    text-align: center;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s;
   }
-  
+  .agendar-contacto:hover{
+    transform: scale(1.1);
+    background: #1ea751;
+  }
+  .img-wp-contac{
+    width: 20px;
+    height: 20px;
+  }
+  /*AQUI EMPIEZA EL CODIGO RESPONSIBLE DE MOVIL*/
   @media (min-width: 769px) {
     .menu-toggle {
       display: none;
@@ -596,7 +610,6 @@
       align-items: center;
       
     }
-   
     .header.compact .titulo-logo {
       opacity: 0;
       display: none;
@@ -604,7 +617,6 @@
       margin: 0;
       overflow: hidden;
     }
-  
     .nav-menu {
       position: relative;
       top: 100%;          /* 👈 JUSTO DEBAJO DEL HEADER */
@@ -687,11 +699,9 @@
     .menu-toggle span:nth-child(1) {
       top: 0;
     }
-    
     .menu-toggle span:nth-child(2) {
       top: 12px;
     }
-    
     .menu-toggle span:nth-child(3) {
       bottom: 0;
     }
@@ -699,11 +709,9 @@
       transform: rotate(45deg);
       top: 12px;
     }
-    
     .menu-toggle.active span:nth-child(2) {
       opacity: 0;
     }
-    
     .menu-toggle.active span:nth-child(3) {
       transform: rotate(-45deg);
       bottom: 12px;
