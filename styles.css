@@ -107,7 +107,7 @@
 }
 
 .slide-content h2 {
-  font-size: 35px;
+  font-size: 45px;
   color: #ffd700;
 } 
 .slide-content {
@@ -531,13 +531,48 @@
   .whatsapp:hover {
     transform: scale(1.1);
   }
+  /* Tooltip para WhatsApp flotante */
+  .whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .whatsapp-tooltip {
+    position: absolute;
+    right: 76px; /* separación desde el botón */
+    bottom: 6px;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    max-width: 260px;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    pointer-events: none;
+    z-index: 3000;
+    text-align: left;
+  }
+  .whatsapp:hover .whatsapp-tooltip,
+  .whatsapp-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .whatsapp-tooltip p { margin: 0; line-height: 1.3; }
+
   /*horario , mapa gps ,cobertura y footer*/
  .horario{
   width: 300px;
  }
   .mapa-cuadro{
-    width:80%; 
-    height:250px; 
+    width:300px; 
+    height:200px; 
     border:0; 
     border-radius: 20px;
   }
@@ -552,6 +587,55 @@
     grid-auto-rows: minmax(100px, auto);
     padding: 60px 5%;
   }
+
+  /* Sección: Cobertura nacional - tarjetas por ciudad */
+  .cobertura {
+    padding: 40px 5%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.06));
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+  }
+  .cobertura-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 10px auto 0;
+  }
+  .ciudad-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 120px;
+    justify-content: center;
+  }
+  .ciudad-card:hover {
+    cursor: pointer;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  }
+  .ciudad-icon {
+    font-size: 30px;
+    line-height: 1;
+  }
+  .ciudad-card h4 {
+    margin: 0;
+    color: var(--dorado);
+    font-size: 1.1rem;
+  }
+  .ciudad-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.95;
+  }
+  /*Fin del codigo para las targetas de cobertura*/
   .agendar-contacto{
     display: flex;
     align-items: center;
@@ -802,4 +886,11 @@
     .footer{
       grid-template-columns: 1fr;
     }
+      /* Ajuste del tooltip en móvil para que no se salga de la pantalla */
+    .whatsapp-tooltip { right: 90px; bottom: 4px; max-width: 200px; font-size: 0.9rem; }
+  }
+
+  @media (max-width: 420px) {
+    .ciudad-icon { font-size: 26px; }
+    .ciudad-card { padding: 14px; }
   }

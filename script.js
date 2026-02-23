@@ -17,6 +17,7 @@ const contServ = document.querySelector(".cont-serv");
 const EstudiosVeri= document.getElementById("estudios-veri");
 const contEstuVeri = document.querySelector(".cont-Pre-estu");
 const btnEstudiosVeri = document.getElementById("btn-estudios-veri");
+const btnVisitasLink = document.getElementById("linkVisitas");
 const conocenos = document.getElementById("conocenos");
 const quieneSomos = document.getElementById("quienes-somos");
 const queEsPorque = document.getElementById("que-porque");
@@ -33,6 +34,42 @@ const NuestrosServicios = document.getElementById("nuestros-serv");
 menuToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       menuToggle.classList.toggle('active');
+
+      /* Tooltip para WhatsApp: en desktop aparece con :hover (CSS), en móvil primer toque muestra mensaje */
+      (() => {
+        const waBtn = document.getElementById('whatsappBtn');
+        const waTooltip = document.getElementById('whatsappTooltip');
+        if (!waBtn || !waTooltip) return;
+
+        let waVisible = false;
+
+        waBtn.addEventListener('click', (e) => {
+          // En dispositivos táctiles o pantallas pequeñas, el primer toque muestra el tooltip
+          const isTouch = navigator.maxTouchPoints > 0 || ('ontouchstart' in window);
+          if ((window.innerWidth <= 768 || isTouch) && !waTooltip.classList.contains('visible')) {
+            e.preventDefault();
+            waTooltip.classList.add('visible');
+            waBtn.setAttribute('aria-expanded', 'true');
+            waVisible = true;
+            // ocultar automáticamente pasados 4 segundos
+            setTimeout(() => {
+              waTooltip.classList.remove('visible');
+              waBtn.setAttribute('aria-expanded', 'false');
+              waVisible = false;
+            }, 4000);
+          }
+          // Si ya está visible, se permite el comportamiento por defecto (abrir WhatsApp)
+        });
+
+        // Cerrar al hacer click fuera
+        document.addEventListener('click', (e) => {
+          if (waVisible && !waBtn.contains(e.target)) {
+            waTooltip.classList.remove('visible');
+            waBtn.setAttribute('aria-expanded', 'false');
+            waVisible = false;
+          }
+        });
+      })();
       navMenu.classList.toggle('open');
       header.style.position = "fixed";
       header.classList.remove('compact');  
@@ -175,6 +212,12 @@ function ServPoligrafia(){
   contPoli.style.display = "block";
   contServ.style.display ="none";
 }
+function ServEstudiosVeri(){
+  servicios.style.display = "block";
+  contEstuVeri.style.display ="block";
+  contPoli.style.display = "none";
+  contServ.style.display ="none";
+}
 btnPoli.addEventListener("click",  ()=>{
   ocultarTodo();
   ServPoligrafia();
@@ -193,10 +236,11 @@ btnRut.addEventListener("click",  ()=>{
 });
 btnEstudiosVeri.addEventListener("click", ()=>{
   ocultarTodo();
-  servicios.style.display = "block";
-  contEstuVeri.style.display ="block";
-  contPoli.style.display = "none";
-  contServ.style.display ="none";
+  ServEstudiosVeri();
+});
+btnVisitasLink.addEventListener("click", ()=>{
+  ocultarTodo();
+  ServEstudiosVeri();
 });
 /*HACER QUE SE ENCONDA Y APARESCA LA SECCION CONOCENOS */
 conocenos.addEventListener("click",()=>{
